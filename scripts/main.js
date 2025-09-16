@@ -409,4 +409,41 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create a custom icon
         const hospitalIcon = L.divIcon({
             className: 'custom-marker',
-            html: `<div style="background-color: ${markerColor}; width: 30px; height: 30px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3); display: flex; align-items: center
+            html: `<div style="background-color: ${markerColor}; width: 30px; height: 30px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${grade}</div>`,
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+        });
+        
+        // Add a marker for the hospital
+        L.marker([lat, lng], {icon: hospitalIcon})
+            .addTo(map)
+            .bindPopup(`<b>${name}</b><br>Grade: ${grade}`)
+            .openPopup();
+    }
+    
+    function formatMetricName(metric) {
+        // Convert camelCase or snake_case to readable format
+        return metric
+            .replace(/_/g, ' ')
+            .replace(/([A-Z])/g, ' $1')
+            .replace(/^./, str => str.toUpperCase())
+            .replace(/\b(STARS|GRADE|RANK|TIER|DY|MORT|READM|Pat|Saf|Exp|OU|Comp|CB)\b/g, match => {
+                const abbreviations = {
+                    'STARS': 'Stars',
+                    'GRADE': 'Grade',
+                    'RANK': 'Rank',
+                    'TIER': 'Tier',
+                    'DY': 'Day',
+                    'MORT': 'Mortality',
+                    'READM': 'Readmission',
+                    'Pat': 'Patient',
+                    'Saf': 'Safety',
+                    'Exp': 'Experience',
+                    'OU': 'Overuse',
+                    'Comp': 'Compensation',
+                    'CB': 'Community Benefit'
+                };
+                return abbreviations[match] || match;
+            });
+    }
+});
