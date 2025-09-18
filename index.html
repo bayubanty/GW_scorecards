@@ -58,9 +58,110 @@
                     <!-- Cities will be populated dynamically -->
                 </select>
             </div>
-            
+            <!-- Metrics section in sidebar -->
+<div class="metrics-section">
+    <h3>CHOOSE A METRIC:</h3>
+    
+    <!-- Financial Transparency Dropdown -->
+    <div class="metric-dropdown">
+        <div class="dropdown-header" data-metric="financialTransparency">
+            <span>Financial transparency and community benefit spending</span>
+            <span class="dropdown-arrow">▼</span>
+        </div>
+        <div class="dropdown-content">
+            <label class="check">
+                <input type="checkbox" id="fBalanceGrowth" data-category="financialTransparency">
+                <span>Balance Growth</span>
+            </label>
+            <label class="check">
+                <input type="checkbox" id="fTransparency" data-category="financialTransparency">
+                <span>Transparency</span>
+            </label>
+            <label class="check">
+                <input type="checkbox" id="fFiscalHealth" data-category="financialTransparency">
+                <span>Fiscal health</span>
+            </label>
+            <label class="check">
+                <input type="checkbox" id="fStaffing" data-category="financialTransparency">
+                <span>Staffing</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Community Benefit Spending Dropdown -->
+    <div class="metric-dropdown">
+        <div class="dropdown-header" data-metric="communityBenefit">
+            <span>Community Benefit Spending</span>
+            <span class="dropdown-arrow">▼</span>
+        </div>
+        <div class="dropdown-content">
+            <label class="check">
+                <input type="checkbox" id="fTaxBenefit" data-category="communityBenefit">
+                <span>Tax Benefit</span>
+            </label>
+            <label class="check">
+                <input type="checkbox" id="fQualityOfCBS" data-category="communityBenefit">
+                <span>Quality of CBS</span>
+            </label>
+            <label class="check">
+                <input type="checkbox" id="fStrategicUse" data-category="communityBenefit">
+                <span>Strategic Use</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Healthcare Affordability Dropdown -->
+    <div class="metric-dropdown">
+        <div class="dropdown-header" data-metric="healthcareAffordability">
+            <span>Healthcare Affordability and billing</span>
+            <span class="dropdown-arrow">▼</span>
+        </div>
+        <div class="dropdown-content">
+            <label class="check">
+                <input type="checkbox" id="fFinancialBurden" data-category="healthcareAffordability">
+                <span>Financial Burden</span>
+            </label>
+            <label class="check">
+                <input type="checkbox" id="fCharityCare" data-category="healthcareAffordability">
+                <span>Charity Care</span>
+            </label>
+            <label class="check">
+                <input type="checkbox" id="fMedicalDebt" data-category="healthcareAffordability">
+                <span>Medical Debt</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Healthcare Access Dropdown -->
+    <div class="metric-dropdown">
+        <div class="dropdown-header" data-metric="accessAndResponsibility">
+            <span>Healthcare Access and Social Responsibility</span>
+            <span class="dropdown-arrow">▼</span>
+        </div>
+        <div class="dropdown-content">
+            <label class="check">
+                <input type="checkbox" id="fRangeOfServices" data-category="accessAndResponsibility">
+                <span>Range of Services</span>
+            </label>
+            <label class="check">
+                <input type="checkbox" id="fDemographicAlignment" data-category="accessAndResponsibility">
+                <span>Demographic Alignment</span>
+            </label>
+            <label class="check">
+                <input type="checkbox" id="fWorkforceTraining" data-category="accessAndResponsibility">
+                <span>Workforce Training</span>
+            </label>
+            <label class="check">
+                <input type="checkbox" id="fPayEquityRatio" data-category="accessAndResponsibility">
+                <span>Pay Equity Ratio</span>
+            </label>
+        </div>
+    </div>
+    
+    <button class="sidebar-button" id="applyMetricsBtn">Apply Metric Filters</button>
+</div>
             <!-- Moved Metrics section to sidebar -->
-            <div class="metrics-section">
+            <!--<div class="metrics-section">
                 <h3>CHOOSE A METRIC:</h3>
                 <div class="custom-dropdown">
                 <div class="dropdown-header" onclick="toggleDropdown()">
@@ -75,7 +176,7 @@
                     <li data-metric="healthcareAffordability">Healthcare Affordability and billing</li>
                     <li data-metric="accessAndResponsibility">Healthcare Access and Social Responsibility</li>
                 </ul> 
-            </div>
+            </div> -->
 
              <button class="sidebar-button" id="sidebarSearchBtn">Apply Filters</button>
             <button class="sidebar-button" id="sidebarResetBtn" style="background-color: #6c757d;">Reset Filters</button>
