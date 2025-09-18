@@ -45,6 +45,56 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentMetric = metricType;
             });
         });
+
+
+        // Add toggle functionality to metric dropdowns start
+const dropdownHeaders = document.querySelectorAll('.dropdown-header');
+dropdownHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const isActive = this.classList.contains('active');
+        
+        // Close all dropdowns
+        document.querySelectorAll('.dropdown-content').forEach(item => {
+            item.classList.remove('show');
+        });
+        document.querySelectorAll('.dropdown-header').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Open this dropdown if it wasn't active
+        if (!isActive) {
+            content.classList.add('show');
+            this.classList.add('active');
+        }
+    });
+});
+
+// Apply metric filters button
+document.getElementById('applyMetricsBtn').addEventListener('click', function() {
+    const selectedMetrics = [];
+    
+    // Get all checked checkboxes
+    const checkedBoxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]:checked');
+    
+    checkedBoxes.forEach(checkbox => {
+        selectedMetrics.push({
+            category: checkbox.getAttribute('data-category'),
+            id: checkbox.id
+        });
+    });
+    
+    // Apply the filters (you'll need to implement this function)
+    applyMetricFilters(selectedMetrics);
+});
+
+// Function to apply metric filters (to be implemented based on your data structure)
+function applyMetricFilters(metrics) {
+    console.log("Applying metric filters:", metrics);
+    // Your implementation here based on how you want to filter the hospitals
+    // This will depend on your data structure and what each metric represents
+}
+
         
         // Add click event to details buttons (using event delegation)
         document.getElementById('hospitalResults').addEventListener('click', function(e) {
